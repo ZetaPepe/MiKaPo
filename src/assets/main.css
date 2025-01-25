@@ -165,7 +165,7 @@ a {
     position: relative;
     height: auto;
     flex-direction: column; /* 让header内容垂直排列 */
-    justify-content: center; /* 居中对齐 */
+    justify-content: flex-start; /* 保证内容顶部对齐 */
     padding: 10px;  /* 给header添加内边距 */
   }
 
@@ -175,8 +175,32 @@ a {
     margin-bottom: 10px; /* 每个item底部添加间距 */
   }
 
+  /* 调整 CA 部分 */
   .header-item p {
     word-break: break-word;  /* 让文本自动换行 */
-    text-align: center; /* 居中显示 */
+    text-align: center;
+    margin-top: 20px;  /* 向下移动CA文本 */
+  }
+
+  .footer {
+    position: relative;
+    height: auto;
+    flex-direction: column; /* 让footer内容垂直排列 */
+    justify-content: center; /* 居中对齐 */
+  }
+
+  .footer-item {
+    width: 100%; /* 确保footer-item占满一行 */
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .motion {
+    width: 100%; /* 使motion在小屏幕下充满容器 */
+  }
+
+  /* 视频播放器适配 */
+  .video-player {
+    width: 100%;
   }
 }
