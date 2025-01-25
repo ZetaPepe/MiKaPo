@@ -155,7 +155,6 @@ const usedKeyBones: string[] = [
 function MMDScene({
   body,
   lerpFactor,
-  setFps,
   selectedModel,
   selectedBackground,
   selectedAnimation,
@@ -171,7 +170,6 @@ function MMDScene({
 }: {
   body: Body
   lerpFactor: number
-  setFps: (fps: number) => void
   selectedModel: string
   selectedBackground: string
   selectedAnimation: string
@@ -400,7 +398,6 @@ function MMDScene({
       groundRef.current!.receiveShadows = true
 
       engine.runRenderLoop(() => {
-        setFps(Math.round(engine.getFps()))
         engine.resize()
         scene!.render()
       })
