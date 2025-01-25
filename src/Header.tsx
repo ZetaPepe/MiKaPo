@@ -24,7 +24,7 @@ function Header(): JSX.Element {
       </div>
 
       {/* 只调整 CA 文本的布局 */}
-      <div className="header-item" style={{ width: "100%", marginTop: "10px" }}>
+      <div className="header-item" style={{ width: "100%", marginTop: "20px" }}>
         <p style={{ wordBreak: "break-word", textAlign: "center" }}>
           CA: 8Sgs7W1mL8cxsd31UKkKTXQjRwqdbLSzw3m9Pcsppump
         </p>
