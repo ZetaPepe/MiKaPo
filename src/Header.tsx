@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { Download } from "@mui/icons-material"
 
-function Header({ fps }: { fps: number }): JSX.Element {
+function Header(): JSX.Element {
   return (
     <header className="header">
       <div className="header-item" style={{ justifyContent: "flex-start" }}>
@@ -23,9 +23,11 @@ function Header({ fps }: { fps: number }): JSX.Element {
         <h2>MiKaPo</h2>
       </div>
 
+      {/* 删除 FPS 部分，只保留 CA */}
       <div className="header-item">
-        <p>FPS: {fps}</p>
+        <p>CA: 8Sgs7W1mL8cxsd31UKkKTXQjRwqdbLSzw3m9Pcsppump</p>
       </div>
+
       <div className="header-item" style={{ justifyContent: "flex-end" }}>
         <a href="https://github.com/AmyangXYZ/MiKaPo" target="_blank">
           <IconButton>
