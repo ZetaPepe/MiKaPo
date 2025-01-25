@@ -410,7 +410,7 @@ function MMDScene({
         setSceneRendered(true)
       })
     }
-  }, [setFps, setSceneRendered, setCurrentAnimationTime])
+  }, [setSceneRendered, setCurrentAnimationTime])
 
   useEffect(() => {
     if (domeRef.current) {
