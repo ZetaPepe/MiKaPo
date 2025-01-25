@@ -42,7 +42,6 @@ body {
   justify-content: space-between;
   align-items: center;
   z-index: 1010;
-  flex-wrap: wrap; /* 让内容在小屏幕时换行 */
 }
 
 .header-item {
@@ -50,7 +49,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px; /* 给每个header-item添加底部间距 */
 }
 
 .header-item a {
@@ -67,7 +65,6 @@ body {
   justify-content: space-between;
   align-items: center;
   z-index: 1010;
-  flex-wrap: wrap; /* 让内容在小屏幕时换行 */
 }
 
 .footer-item {
@@ -179,26 +176,12 @@ a {
   animation: capture-shutter 0.5s ease-in-out;
 }
 
-.screenshot-button {
-  transition: transform 0.5s;
-}
-
-.screenshot-button.animate {
-  animation: capture-shutter 0.5s ease-in-out;
-}
-
-/* 媒体查询：适应手机端（宽度小于767px时） */
 @media screen and (max-width: 767px) {
-  body {
-    flex-direction: column; /* 保证内容垂直排列 */
-    align-items: flex-start; /* 保证内容左对齐 */
-  }
-
   .scene {
     position: relative;
     top: auto;
     width: 100%;
-    height: calc(100vh - 4rem); /* 保证场景的高度适应 */
+    height: calc(100vh - 4rem);
   }
 
   .toolbar {
@@ -208,7 +191,6 @@ a {
     width: 100%;
     height: 2rem;
   }
-
   .video-player {
     position: relative;
     height: 200px;
@@ -219,38 +201,6 @@ a {
 
   .header {
     position: relative;
-    height: auto;
-    flex-direction: column;  /* 让头部内容垂直排列 */
-    justify-content: center;  /* 居中对齐 */
-    padding: 10px;  /* 给header增加内边距 */
-    z-index: 1001;
-  }
-
-  .header-item {
-    width: 100%;  /* 确保每个header-item占满一行 */
-    justify-content: center;
-    margin-bottom: 10px; /* 每个item底部添加间距 */
-  }
-
-  .footer {
-    position: relative;
-    height: auto;
-    flex-direction: column; /* 让footer垂直排列 */
-    justify-content: center; /* 居中对齐 */
-  }
-
-  .footer-item {
-    width: 100%; /* 确保footer-item占满一行 */
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-
-  .motion {
-    width: 100%; /* 使得motion在小屏幕下充满容器 */
-  }
-
-  /* 针对手机小屏的优化：让视频播放器宽度适应屏幕 */
-  .video-player {
-    width: 100%;
+    height: 2.5rem;
   }
 }
