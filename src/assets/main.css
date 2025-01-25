@@ -32,7 +32,7 @@ body {
 }
 
 .header {
-  height: auto;
+  height: 2.5rem;
   width: 100%;
   padding: 0 1rem;
   top: 0.5rem;
@@ -42,19 +42,36 @@ body {
   justify-content: space-between;
   align-items: center;
   z-index: 1010;
-  flex-wrap: wrap; /* 确保元素在手机端换行 */
 }
 
 .header-item {
-  width: 100%;
+  width: 30%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
 }
 
 .header-item a {
   display: flex;
+}
+
+.footer {
+  width: 100%;
+  padding: 0 1rem;
+  bottom: 0.5rem;
+  left: 0;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1010;
+}
+
+.footer-item {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .motion {
@@ -159,48 +176,31 @@ a {
   animation: capture-shutter 0.5s ease-in-out;
 }
 
-/* 只在手机端调整header布局 */
 @media screen and (max-width: 767px) {
+  .scene {
+    position: relative;
+    top: auto;
+    width: 100%;
+    height: calc(100vh - 4rem);
+  }
+
+  .toolbar {
+    position: relative;
+    top: 0.4rem;
+    left: auto;
+    width: 100%;
+    height: 2rem;
+  }
+  .video-player {
+    position: relative;
+    height: 200px;
+    width: 100%;
+    left: auto;
+    top: 0.4rem;
+  }
+
   .header {
     position: relative;
-    height: auto;
-    flex-direction: column; /* 让header内容垂直排列 */
-    justify-content: flex-start; /* 保证内容顶部对齐 */
-    padding: 10px;  /* 给header添加内边距 */
-  }
-
-  .header-item {
-    width: 100%;  /* 确保每个header-item占满一行 */
-    justify-content: center;
-    margin-bottom: 10px; /* 每个item底部添加间距 */
-  }
-
-  /* 调整 CA 部分 */
-  .header-item p {
-    word-break: break-word;  /* 让文本自动换行 */
-    text-align: center;
-    margin-top: 20px;  /* 向下移动CA文本 */
-  }
-
-  .footer {
-    position: relative;
-    height: auto;
-    flex-direction: column; /* 让footer内容垂直排列 */
-    justify-content: center; /* 居中对齐 */
-  }
-
-  .footer-item {
-    width: 100%; /* 确保footer-item占满一行 */
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-
-  .motion {
-    width: 100%; /* 使motion在小屏幕下充满容器 */
-  }
-
-  /* 视频播放器适配 */
-  .video-player {
-    width: 100%;
+    height: 2.5rem;
   }
 }
