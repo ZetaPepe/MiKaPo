@@ -14,21 +14,16 @@ import { Body } from "./index"
 
 function App(): JSX.Element {
   const [body, setBody] = useState<Body>({ mainBody: null, leftHand: null, rightHand: null, face: null })
-
   const [lerpFactor, setLerpFactor] = useState<number>(0.5)
-  const [fps, setFps] = useState<number>(0)
   const [openDrawer, setOpenDrawer] = useState<boolean>(false)
   const [activeTab, setActiveTab] = useState<string>("")
-
   const [selectedModel, setSelectedModel] = useState<string>("深空之眼-托特")
   const [selectedBackground, setSelectedBackground] = useState<string>("Static")
-
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
   const [selectedAnimation, setSelectedAnimation] = useState<string>("")
   const [currentAnimationTime, setCurrentAnimationTime] = useState<number>(0)
   const [animationSeekTime, setAnimationSeekTime] = useState<number>(0)
   const [animationDuration, setAnimationDuration] = useState<number>(0)
-
   const [boneRotation, setBoneRotation] = useState<{ name: string; axis: string; value: number } | null>(null)
   const [materials, setMaterials] = useState<string[]>([])
   const [materialVisible, setMaterialVisible] = useState<{ name: string; visible: boolean } | null>(null)
@@ -42,7 +37,8 @@ function App(): JSX.Element {
 
   return (
     <>
-      <Header fps={fps}></Header>
+      {/* 删除 fps 属性传递 */}
+      <Header />
 
       <MMDScene
         selectedModel={selectedModel}
@@ -51,7 +47,6 @@ function App(): JSX.Element {
         setSelectedAnimation={setSelectedAnimation}
         body={body}
         lerpFactor={lerpFactor}
-        setFps={setFps}
         boneRotation={boneRotation}
         setMaterials={setMaterials}
         materialVisible={materialVisible}
@@ -60,7 +55,7 @@ function App(): JSX.Element {
         animationSeekTime={animationSeekTime}
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
-      ></MMDScene>
+      />
       <Drawer
         variant="persistent"
         open={openDrawer}
@@ -82,12 +77,12 @@ function App(): JSX.Element {
             setBody={setBody}
             setLerpFactor={setLerpFactor}
             style={{ display: activeTab === "motion" ? "block" : "none" }}
-          ></Motion>
+          />
         )}
         {activeTab === "material" && (
-          <Materials materials={materials} setMaterialVisible={setMaterialVisible}></Materials>
+          <Materials materials={materials} setMaterialVisible={setMaterialVisible} />
         )}
-        {activeTab === "skeleton" && <Skeleton setBoneRotation={setBoneRotation}></Skeleton>}
+        {activeTab === "skeleton" && <Skeleton setBoneRotation={setBoneRotation} />}
         {activeTab === "animation" && (
           <Animation
             isPlaying={isPlaying}
@@ -96,17 +91,17 @@ function App(): JSX.Element {
             currentAnimationTime={currentAnimationTime}
             setAnimationSeekTime={setAnimationSeekTime}
             animationDuration={animationDuration}
-          ></Animation>
+          />
         )}
-        {activeTab === "model" && <Model setSelectedModel={setSelectedModel}></Model>}
+        {activeTab === "model" && <Model setSelectedModel={setSelectedModel} />}
         {activeTab === "background" && (
           <Background
             selectedBackground={selectedBackground}
             setSelectedBackground={setSelectedBackground}
-          ></Background>
+          />
         )}
       </Drawer>
-      <Footer setOpenDrawer={setOpenDrawer} setActiveTab={setActiveTab}></Footer>
+      <Footer setOpenDrawer={setOpenDrawer} setActiveTab={setActiveTab} />
     </>
   )
 }
