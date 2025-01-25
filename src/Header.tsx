@@ -24,7 +24,7 @@ function Header(): JSX.Element {
       </div>
 
       {/* 添加自定义 margin-top 来调整 CA 文本与顶部的距离 */}
-      <div className="header-item" style={{ marginTop: "30px" }}>
+      <div className="header-item" style={{ marginTop: "70px" }}>
         <p>CA: 8Sgs7W1mL8cxsd31UKkKTXQjRwqdbLSzw3m9Pcsppump</p>
       </div>
 
