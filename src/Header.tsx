@@ -23,9 +23,11 @@ function Header(): JSX.Element {
         <h2>MiKaPo</h2>
       </div>
 
-      {/* 删除 FPS 部分，只保留 CA */}
-      <div className="header-item">
-        <p>CA: 8Sgs7W1mL8cxsd31UKkKTXQjRwqdbLSzw3m9Pcsppump</p>
+      {/* 只调整 CA 文本的布局 */}
+      <div className="header-item" style={{ width: "100%", marginTop: "10px" }}>
+        <p style={{ wordBreak: "break-word", textAlign: "center" }}>
+          CA: 8Sgs7W1mL8cxsd31UKkKTXQjRwqdbLSzw3m9Pcsppump
+        </p>
       </div>
 
       <div className="header-item" style={{ justifyContent: "flex-end" }}>
