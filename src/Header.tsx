@@ -5,8 +5,8 @@ import { Download } from "@mui/icons-material"
 
 function Header(): JSX.Element {
   return (
-    <header className="header">
-      <div className="header-item" style={{ justifyContent: "flex-start" }}>
+    <header className="header" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+      <div className="header-item" style={{ justifyContent: "flex-start", display: 'flex', alignItems: 'center' }}>
         <Avatar
           alt="MiKaPo"
           src="/logo.png"
@@ -23,12 +23,12 @@ function Header(): JSX.Element {
         <h2>MiKaPo</h2>
       </div>
 
-      {/* 删除 FPS 部分，只保留 CA */}
-      <div className="header-item">
+      <div className="header-item" style={{ marginTop: '10px' }}>
+        {/* 让 CA 在新的一行显示 */}
         <p>CA: 8Sgs7W1mL8cxsd31UKkKTXQjRwqdbLSzw3m9Pcsppump</p>
       </div>
 
-      <div className="header-item" style={{ justifyContent: "flex-end" }}>
+      <div className="header-item" style={{ justifyContent: "flex-end", display: 'flex', alignItems: 'center' }}>
         <a href="https://github.com/AmyangXYZ/MiKaPo" target="_blank">
           <IconButton>
             <FontAwesomeIcon icon={faGithub} color="white" size="sm" />
