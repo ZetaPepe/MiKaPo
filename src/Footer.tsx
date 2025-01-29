@@ -33,7 +33,7 @@ function Footer({
       {items.map(({ name, icon, color }, index) => {
         const angle = startAngle + stepAngle * index; // 计算当前按钮的角度
         const radian = (angle * Math.PI) / 180; // 角度转弧度
-        const x = 80 + radius * Math.cos(radian); // **减少基础值，往左移动**
+        const x = 65 + radius * Math.cos(radian); // **减少基础值，往左移动**
         const y = 50 + radius * Math.sin(radian); // 计算Y坐标
 
         return (
