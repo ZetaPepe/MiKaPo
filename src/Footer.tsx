@@ -11,7 +11,6 @@ function Footer({
 }): JSX.Element {
   const colorPalette = {
     skeleton: "#3498DB", // Peter River Blue
-    material: "#2ECC71", // Emerald Green
     background: "#9B59B6", // Amethyst
     model: "#FF8C00", // Dark Orange
     animation: "#E74C3C", // Alizarin Red
@@ -21,7 +20,7 @@ function Footer({
     <div className="footer">
       {[ 
         { name: "Model", icon: faUser, angle: -20, color: colorPalette.model },
-        { name: "Material", icon: faShirt, angle: 10, color: colorPalette.material },
+        // 删除了 "Material" 部分
         { name: "Background", icon: faPanorama, angle: 40, color: colorPalette.background },
         { name: "Skeleton", icon: faBone, angle: 70, color: colorPalette.skeleton },
         { name: "Animation", icon: faFilm, angle: 100, color: colorPalette.animation },
