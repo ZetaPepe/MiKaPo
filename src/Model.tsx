@@ -7,6 +7,7 @@ const availableModels = [
   "Eye of Deep Space - Brahma",
   "Eye of Deep Space - Brahma 2",
   "Eye of Deep Space-Selene",
+  "Eye of Deep Space-Selene 2",
   "Mingchao-Yinlin",
   "Original God-Ying",
 ]
