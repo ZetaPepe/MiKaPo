@@ -128,7 +128,7 @@ function Skeleton({
                 return bone ? (
                   <React.Fragment key={bone.name_en}>
                     <ListItemButton onClick={() => toggleBone(bone.name_en)} sx={{ pl: 4 }}>
-                      <ListItemText primary={`${bone.name_jp} - ${bone.name_en}`} />
+                      <ListItemText primary={`{bone.name_en}`} />
                       <IconButton edge="end">
                         {openBones[bone.name_en] ? (
                           <ExpandLess sx={{ color: "white" }} />
