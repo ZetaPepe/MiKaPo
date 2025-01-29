@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome" 
 import { faBone, faFilm, faPanorama, faShirt, faUser } from "@fortawesome/free-solid-svg-icons"
 import { Fab, Tooltip } from "@mui/material"
-import { useCallback, useEffect } from "react"
 
 function Footer({
   setOpenDrawer,
@@ -17,34 +16,6 @@ function Footer({
     model: "#FF8C00", // Dark Orange
     animation: "#E74C3C", // Alizarin Red
   }
-
-  const updateZhiyin = useCallback(() => {
-    let counter = 0
-    let increment = true
-
-    return () => {
-      const hex = counter.toString(16).padStart(2, "0")
-      // setZhiyin(String.fromCodePoint(0xe900 + parseInt(hex, 16))) // 这一行删除
-      if (increment) {
-        counter++
-        if (counter === 17) {
-          increment = false
-          counter--
-        }
-      } else {
-        counter--
-        if (counter === -1) {
-          increment = true
-          counter++
-        }
-      }
-    }
-  }, [])
-
-  useEffect(() => {
-    const animationInterval = setInterval(updateZhiyin(), 100)
-    return () => clearInterval(animationInterval)
-  }, [updateZhiyin])
 
   return (
     <div className="footer">
