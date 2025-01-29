@@ -8,7 +8,7 @@ function Header(): JSX.Element {
     <header className="header">
       <div className="header-item" style={{ justifyContent: "flex-start" }}>
         <Avatar
-          alt="MiKaPo"
+          alt="Mikiu"
           src="/logo.png"
           sx={{
             width: 36,
