@@ -17,7 +17,7 @@ function App(): JSX.Element {
   const [lerpFactor, setLerpFactor] = useState<number>(0.5)
   const [openDrawer, setOpenDrawer] = useState<boolean>(false)
   const [activeTab, setActiveTab] = useState<string>("")
-  const [selectedModel, setSelectedModel] = useState<string>("深空之眼-托特")
+  const [selectedModel, setSelectedModel] = useState<string>("Eye of Deep Space - Brahma 2")
   const [selectedBackground, setSelectedBackground] = useState<string>("Static")
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
   const [selectedAnimation, setSelectedAnimation] = useState<string>("")
