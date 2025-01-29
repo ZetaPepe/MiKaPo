@@ -2,13 +2,13 @@ import { FormControl, FormControlLabel, Radio, RadioGroup, Avatar, Typography } 
 import { Box } from "@mui/system"
 
 const availableModels = [
-  "深空之眼-托特",
-  "深空之眼-托特2",
-  "深空之眼-梵天",
-  "深空之眼-梵天2",
-  "深空之眼-塞勒涅",
-  "鸣潮-吟霖",
-  "原神-荧",
+  "Eye of Deep Space-Thoth",
+  "Eye of Deep Space - Thoth 2",
+  "Eye of Deep Space - Brahma",
+  "Eye of Deep Space - Brahma 2",
+  "Eye of Deep Space-Selene",
+  "Mingchao-Yinlin",
+  "Original God-Ying",
 ]
 
 function Model({ setSelectedModel }: { setSelectedModel: (model: string) => void }): JSX.Element {
