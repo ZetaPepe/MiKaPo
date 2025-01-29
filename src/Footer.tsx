@@ -1,4 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome" 
 import { faBone, faFilm, faPanorama, faShirt, faUser } from "@fortawesome/free-solid-svg-icons"
 import { Fab, Tooltip } from "@mui/material"
 import { useCallback, useEffect, useState } from "react"
@@ -11,7 +11,6 @@ function Footer({
   setActiveTab: (tab: string) => void
 }): JSX.Element {
   const colorPalette = {
-    motion: "#4A90E2", // Soft Blue
     skeleton: "#3498DB", // Peter River Blue
     material: "#2ECC71", // Emerald Green
     background: "#9B59B6", // Amethyst
@@ -50,32 +49,7 @@ function Footer({
 
   return (
     <div className="footer">
-      <Tooltip title="Motion capture" placement="left-start">
-        <div
-          style={{
-            position: "absolute",
-            right: 20,
-            bottom: 20,
-            width: "106px",
-            height: "106px",
-            borderRadius: "50%",
-            backgroundColor: colorPalette.motion,
-            boxShadow:
-              "0px 3px 5px -1px rgba(0,0,0,0.2), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.12)",
-            fontSize: "80px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-          onClick={() => {
-            setActiveTab("motion")
-            setOpenDrawer(true)
-          }}
-        >
-          <p style={{ fontFamily: "Zhiyin", marginLeft: -10 }}>{zhiyin}</p>
-        </div>
-      </Tooltip>
-      {[
+      {[ 
         { name: "Model", icon: faUser, angle: -20, color: colorPalette.model },
         { name: "Material", icon: faShirt, angle: 10, color: colorPalette.material },
         { name: "Background", icon: faPanorama, angle: 40, color: colorPalette.background },
