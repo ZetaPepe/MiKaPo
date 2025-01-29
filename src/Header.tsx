@@ -20,7 +20,7 @@ function Header(): JSX.Element {
             },
           }}
         />
-        <h2>MiKiu</h2>
+        <h2>Mikiu</h2>
       </div>
 
       {/* 添加自定义 margin-top 来调整 CA 文本与顶部的距离 */}
