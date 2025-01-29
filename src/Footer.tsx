@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome" 
-import { faBone, faFilm, faPanorama, faUser } from "@fortawesome/free-solid-svg-icons" // 移除 faShirt
+import { faBone, faFilm, faPanorama, faUser } from "@fortawesome/free-solid-svg-icons"
 import { Fab, Tooltip } from "@mui/material"
 
 function Footer({
@@ -16,36 +16,49 @@ function Footer({
     animation: "#E74C3C", // Alizarin Red
   }
 
+  const items = [
+    { name: "Model", icon: faUser, color: colorPalette.model },
+    { name: "Background", icon: faPanorama, color: colorPalette.background },
+    { name: "Skeleton", icon: faBone, color: colorPalette.skeleton },
+    { name: "Animation", icon: faFilm, color: colorPalette.animation },
+  ];
+
+  const radius = 90; // 设定半径
+  const startAngle = 45; // 起始角度
+  const endAngle = 135; // 结束角度
+  const stepAngle = (endAngle - startAngle) / (items.length - 1); // 计算每个按钮的间隔角度
+
   return (
     <div className="footer">
-      {[ 
-        { name: "Model", icon: faUser, angle: -20, color: colorPalette.model },
-        // 删除了 "Material" 部分
-        { name: "Background", icon: faPanorama, angle: 40, color: colorPalette.background },
-        { name: "Skeleton", icon: faBone, angle: 70, color: colorPalette.skeleton },
-        { name: "Animation", icon: faFilm, angle: 100, color: colorPalette.animation },
-      ].map(({ name, icon, angle, color }, index) => (
-        <Tooltip key={index} title={name}>
-          <Fab
-            style={{
-              position: "absolute",
-              right: 50 + 90 * Math.cos((angle * Math.PI) / 180),
-              bottom: 50 + 90 * Math.sin((angle * Math.PI) / 180),
-              width: "36px",
-              height: "36px",
-              backgroundColor: color,
-            }}
-            onClick={() => {
-              setActiveTab(name.toLowerCase())
-              setOpenDrawer(true)
-            }}
-          >
-            <FontAwesomeIcon icon={icon} color="white" size="lg" />
-          </Fab>
-        </Tooltip>
-      ))}
+      {items.map(({ name, icon, color }, index) => {
+        const angle = startAngle + stepAngle * index; // 计算当前按钮的角度
+        const radian = (angle * Math.PI) / 180; // 角度转弧度
+        const x = 50 + radius * Math.cos(radian); // 计算X坐标
+        const y = 50 + radius * Math.sin(radian); // 计算Y坐标
+
+        return (
+          <Tooltip key={index} title={name}>
+            <Fab
+              style={{
+                position: "absolute",
+                right: x, // 让按钮沿着弧形排列
+                bottom: y,
+                width: "36px",
+                height: "36px",
+                backgroundColor: color,
+              }}
+              onClick={() => {
+                setActiveTab(name.toLowerCase());
+                setOpenDrawer(true);
+              }}
+            >
+              <FontAwesomeIcon icon={icon} color="white" size="lg" />
+            </Fab>
+          </Tooltip>
+        );
+      })}
     </div>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
