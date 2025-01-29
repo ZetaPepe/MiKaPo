@@ -23,9 +23,9 @@ function Footer({
     { name: "Animation", icon: faFilm, color: colorPalette.animation },
   ];
 
-  const radius = 90; // 设定半径
-  const startAngle = 45; // 起始角度
-  const endAngle = 135; // 结束角度
+  const radius = 100; // 增加半径，使按钮分布更均匀
+  const startAngle = 30; // 起始角度
+  const endAngle = 120; // 结束角度
   const stepAngle = (endAngle - startAngle) / (items.length - 1); // 计算每个按钮的间隔角度
 
   return (
@@ -33,7 +33,7 @@ function Footer({
       {items.map(({ name, icon, color }, index) => {
         const angle = startAngle + stepAngle * index; // 计算当前按钮的角度
         const radian = (angle * Math.PI) / 180; // 角度转弧度
-        const x = 50 + radius * Math.cos(radian); // 计算X坐标
+        const x = 80 + radius * Math.cos(radian); // **减少基础值，往左移动**
         const y = 50 + radius * Math.sin(radian); // 计算Y坐标
 
         return (
@@ -41,7 +41,7 @@ function Footer({
             <Fab
               style={{
                 position: "absolute",
-                right: x, // 让按钮沿着弧形排列
+                right: x, // 向左移动
                 bottom: y,
                 width: "36px",
                 height: "36px",
