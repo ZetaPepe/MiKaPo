@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome" 
-import { faBone, faFilm, faPanorama, faShirt, faUser } from "@fortawesome/free-solid-svg-icons"
+import { faBone, faFilm, faPanorama, faUser } from "@fortawesome/free-solid-svg-icons" // 移除 faShirt
 import { Fab, Tooltip } from "@mui/material"
 
 function Footer({
