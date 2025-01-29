@@ -41,9 +41,6 @@ function Header(): JSX.Element {
             <FontAwesomeIcon icon={faTwitter} color="white" size="sm" />
           </IconButton>
         </a>
-        <a href="https://www.buymeacoffee.com/amyang" target="_blank">
-          <img src="/coffee.png" alt="Buy Me A Coffee" width={140} height={34} />
-        </a>
       </div>
     </header>
   )
