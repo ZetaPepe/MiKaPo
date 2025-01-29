@@ -18,7 +18,7 @@ function App(): JSX.Element {
   const [openDrawer, setOpenDrawer] = useState<boolean>(false)
   const [activeTab, setActiveTab] = useState<string>("")
   const [selectedModel, setSelectedModel] = useState<string>("Eye of Deep Space - Brahma 2")
-  const [selectedBackground, setSelectedBackground] = useState<string>("Static")
+  const [selectedBackground, setSelectedBackground] = useState<string>("Beach")
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
   const [selectedAnimation, setSelectedAnimation] = useState<string>("")
   const [currentAnimationTime, setCurrentAnimationTime] = useState<number>(0)
