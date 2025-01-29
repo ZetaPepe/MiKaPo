@@ -101,60 +101,61 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
 }))
 
 const usedKeyBones: string[] = [
-  "center",
-  "neck",
-  "head",
-  "upperBody",
-  "lowerBody",
-  "leftLeg",
-  "rightLeg",
-  "leftKnee",
-  "rightKnee",
-  "leftAnkle",
-  "rightAnkle",
-  "leftForearm",
-  "rightForearm",
-  "leftElbow",
-  "rightElbow",
-  "leftWrist",
-  "rightWrist",
-  "leftFootIK",
-  "rightFootIK",
-  "leftEye",
-  "rightEye",
-  "rightThumb1",
-  "rightThumb2",
-  "rightIndex1",
-  "rightIndex2",
-  "rightIndex3",
-  "rightMiddle1",
-  "rightMiddle2",
-  "rightMiddle3",
-  "rightRing1",
-  "rightRing2",
-  "rightRing3",
-  "rightPinky1",
-  "rightPinky2",
-  "rightPinky3",
-  "leftThumb1",
-  "leftThumb2",
-  "leftIndex1",
-  "leftIndex2",
-  "leftIndex3",
-  "leftMiddle1",
-  "leftMiddle2",
-  "leftMiddle3",
-  "leftRing1",
-  "leftRing2",
-  "leftRing3",
-  "leftPinky1",
-  "leftPinky2",
-  "leftPinky3",
+  "センター",
+  "首",
+  "頭",
+  "上半身",
+  "下半身",
+  "左足",
+  "右足",
+  "左ひざ",
+  "右ひざ",
+  "左足首",
+  "右足首",
+  "左腕",
+  "右腕",
+  "左ひじ",
+  "右ひじ",
+  "左手首",
+  "右手首",
+  "左足ＩＫ",
+  "右足ＩＫ",
+  "左目",
+  "右目",
+  "右親指１",
+  "右親指２",
+  "右人指１",
+  "右人指２",
+  "右人指３",
+  "右中指１",
+  "右中指２",
+  "右中指３",
+  "右薬指１",
+  "右薬指２",
+  "右薬指３",
+  "右小指１",
+  "右小指２",
+  "右小指３",
+  "左親指１",
+  "左親指２",
+  "左人指１",
+  "左人指２",
+  "左人指３",
+  "左中指１",
+  "左中指２",
+  "左中指３",
+  "左薬指１",
+  "左薬指２",
+  "左薬指３",
+  "左小指１",
+  "左小指２",
+  "左小指３",
 ]
 
 function MMDScene({
   body,
   lerpFactor,
+  setFps,
   selectedModel,
   selectedBackground,
   selectedAnimation,
@@ -170,6 +171,7 @@ function MMDScene({
 }: {
   body: Body
   lerpFactor: number
+  setFps: (fps: number) => void
   selectedModel: string
   selectedBackground: string
   selectedAnimation: string
@@ -398,6 +400,7 @@ function MMDScene({
       groundRef.current!.receiveShadows = true
 
       engine.runRenderLoop(() => {
+        setFps(Math.round(engine.getFps()))
         engine.resize()
         scene!.render()
       })
@@ -410,7 +413,7 @@ function MMDScene({
         setSceneRendered(true)
       })
     }
-  }, [setSceneRendered, setCurrentAnimationTime])
+  }, [setFps, setSceneRendered, setCurrentAnimationTime])
 
   useEffect(() => {
     if (domeRef.current) {
@@ -524,19 +527,19 @@ function MMDScene({
         body.face || []
       )
 
-      setBoneRotation(getBone("upperBody"), result.upper_body)
-      setBoneRotation(getBone("lower_body"), result.lower_body)
-      setBoneRotation(getBone("neck"), result.neck)
-      setBoneRotation(getBone("left_upper_arm"), result.left_upper_arm)
-      setBoneRotation(getBone("left_lower_arm"), result.left_lower_arm)
-      setBoneRotation(getBone("right_upper_arm"), result.right_upper_arm)
-      setBoneRotation(getBone("right_lower_arm"), result.right_lower_arm)
-      setBoneRotation(getBone("left_hip"), result.left_hip)
-      setBoneRotation(getBone("right_hip"), result.right_hip)
-      setBoneRotation(getBone("left_foot"), result.left_foot)
-      setBoneRotation(getBone("right_foot"), result.right_foot)
-      setBoneRotation(getBone("left_wrist"), result.left_wrist)
-      setBoneRotation(getBone("right_wrist"), result.right_wrist)
+      setBoneRotation(getBone("上半身"), result.upper_body)
+      setBoneRotation(getBone("下半身"), result.lower_body)
+      setBoneRotation(getBone("首"), result.neck)
+      setBoneRotation(getBone("左腕"), result.left_upper_arm)
+      setBoneRotation(getBone("左ひじ"), result.left_lower_arm)
+      setBoneRotation(getBone("右腕"), result.right_upper_arm)
+      setBoneRotation(getBone("右ひじ"), result.right_lower_arm)
+      setBoneRotation(getBone("左足"), result.left_hip)
+      setBoneRotation(getBone("右足"), result.right_hip)
+      setBoneRotation(getBone("左足首"), result.left_foot)
+      setBoneRotation(getBone("右足首"), result.right_foot)
+      setBoneRotation(getBone("左手首"), result.left_wrist)
+      setBoneRotation(getBone("右手首"), result.right_wrist)
 
       // setBoneRotation(getBone("左親指１"), result.left_thumb_cmc)
       // setBoneRotation(getBone("左親指２"), result.left_thumb_mcp)
