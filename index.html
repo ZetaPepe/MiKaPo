@@ -4,45 +4,15 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to Mikiu</title>
+    <title>Mikiu</title>
     <style>
       body {
         background-color: #000;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        font-family: Arial, sans-serif;
-      }
-      button {
-        background-color: #f209f5;
-        color: white;
-        font-size: 18px;
-        padding: 15px 30px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-      button:hover {
-        background-color: #d10bd3;
       }
     </style>
   </head>
   <body>
-    <div>
-      <h1>Welcome to Mikiu</h1>
-      <button id="startButton">Click to Start</button>
-    </div>
-
-    <script>
-      document.getElementById("startButton").addEventListener("click", function() {
-        console.log("Button clicked! Now redirecting...");
-        
-        // Redirect to the welcome page (ensure correct path)
-        window.location.href = "/welcome.html";  // This should be the correct path
-      });
-    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
