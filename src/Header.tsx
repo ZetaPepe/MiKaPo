@@ -25,7 +25,7 @@ function Header(): JSX.Element {
 
       {/* 添加自定义 margin-top 来调整 CA 文本与顶部的距离 */}
       <div className="header-item" style={{ marginTop: "50px" }}>
-        <p>CA: </p>
+        <p> </p>
       </div>
 
       <div className="header-item" style={{ justifyContent: "flex-end" }}>
