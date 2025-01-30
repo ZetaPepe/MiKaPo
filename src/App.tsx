@@ -86,25 +86,6 @@ function App(): JSX.Element {
             zIndex: 9999,
           }}
         >
-          <button
-            onClick={() => {
-              setOpacity(0);
-              setTimeout(() => {
-                setShowPopup(false);
-                setShowModel(true);
-              }, 500);
-            }}
-            style={{
-              position: "absolute",
-              top: "8px",
-              right: "8px",
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-            }}
-          >
-            <Close style={{ color: "white", fontSize: "20px" }} />
-          </button>
 
           <h2 style={{ margin: "0 0 10px", fontSize: "22px", fontWeight: "bold" }}>
             Welcome to Mikiu!
