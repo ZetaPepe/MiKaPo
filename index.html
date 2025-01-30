@@ -12,6 +12,7 @@
         overflow: hidden;
       }
 
+      /* 提示框样式 */
       #loading-screen {
         position: fixed;
         top: 0;
@@ -20,6 +21,7 @@
         height: 100%;
         background: rgba(0, 0, 0, 0.9);
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         color: white;
@@ -28,11 +30,21 @@
         text-align: center;
         z-index: 9999;
       }
+
+      /* 图片样式 */
+      #loading-image {
+        width: 120px; /* 图片宽度 */
+        height: auto;
+        margin-bottom: 20px; /* 图片和文字之间的间距 */
+      }
     </style>
   </head>
   <body>
     <!-- 载入提示框 -->
-    <div id="loading-screen">欢迎访问 Mikiu，正在加载...</div>
+    <div id="loading-screen">
+      <img id="loading-image" src="/logo.png" alt="加载中" />
+      Welcome to Mikiu, loading...
+    </div>
 
     <!-- React 挂载点 -->
     <div id="root" style="display: none;"></div>
@@ -51,7 +63,7 @@
             console.error('加载 main.tsx 失败:', err);
           });
         }, 500);
-      }, 1000);
+      }, 3000);
     </script>
   </body>
 </html>
