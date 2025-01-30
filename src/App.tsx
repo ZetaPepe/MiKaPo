@@ -9,7 +9,7 @@ import Footer from "./Footer";
 import Skeleton from "./Skeleton";
 import Background from "./Background";
 import { Drawer, IconButton } from "@mui/material";
-import { KeyboardBackspace, Close } from "@mui/icons-material"; // 关闭按钮
+import { KeyboardBackspace } from "@mui/icons-material"; // 移除 Close 图标
 import { Body } from "./index";
 
 function App(): JSX.Element {
@@ -35,7 +35,6 @@ function App(): JSX.Element {
   const [materialVisible, setMaterialVisible] = useState<{ name: string; visible: boolean } | null>(null);
   const [motionMounted, setMotionMounted] = useState(false);
 
-  // 先显示提示框，等提示框消失后才显示3D模型
   const [showPopup, setShowPopup] = useState<boolean>(true);
   const [showModel, setShowModel] = useState<boolean>(false);
   const [opacity, setOpacity] = useState<number>(1);
@@ -46,7 +45,6 @@ function App(): JSX.Element {
     }
   }, [activeTab, motionMounted]);
 
-  // 6 秒后隐藏提示框，然后显示 3D 模型
   useEffect(() => {
     const timer = setTimeout(() => {
       setOpacity(0);
@@ -61,7 +59,6 @@ function App(): JSX.Element {
 
   return (
     <div>
-      {/* 提示框 */}
       {showPopup && (
         <div
           style={{
@@ -86,7 +83,6 @@ function App(): JSX.Element {
             zIndex: 9999,
           }}
         >
-
           <h2 style={{ margin: "0 0 10px", fontSize: "22px", fontWeight: "bold" }}>
             Welcome to Mikiu!
           </h2>
