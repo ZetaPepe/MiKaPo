@@ -1,4 +1,4 @@
-、<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -38,8 +38,11 @@
 
     <script>
       document.getElementById("startButton").addEventListener("click", function() {
-        // Redirect to the main page (your current page with React app)
-        window.location.href = "/welcome.html";  // Change to the path of your main page
+        // Log to the console to check if the event is being triggered
+        console.log("Button clicked! Now redirecting...");
+
+        // Redirect to the main page (now renamed to app.html)
+        window.location.href = "/welcome.html";  // Ensure this is the correct path to the app page
       });
     </script>
   </body>
