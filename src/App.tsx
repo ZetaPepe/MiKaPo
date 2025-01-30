@@ -69,11 +69,10 @@ function App(): JSX.Element {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            backgroundColor: "rgba(255, 255, 255, 0.1)",
-            color: "black",
+            backgroundColor: "transparent", // 让提示框完全透明
+            color: "white", // 让文字变成白色
             padding: "20px",
             borderRadius: "12px",
-            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
             fontSize: "18px",
             textAlign: "center",
             width: "400px",
@@ -84,6 +83,8 @@ function App(): JSX.Element {
             opacity: opacity,
             transition: "opacity 0.5s ease-in-out",
             zIndex: 9999, // 确保在最前面
+            fontFamily: "'Orbitron', sans-serif", // 科技感字体
+            textShadow: "0px 0px 8px rgba(255, 255, 255, 0.8)", // 增强可读性，带光晕效果
           }}
         >
           {/* 关闭按钮 */}
@@ -104,7 +105,7 @@ function App(): JSX.Element {
               cursor: "pointer",
             }}
           >
-            <Close style={{ color: "black", fontSize: "20px" }} />
+            <Close style={{ color: "white", fontSize: "20px" }} />
           </button>
 
           {/* 标题文本 */}
@@ -142,46 +143,6 @@ function App(): JSX.Element {
         />
       )}
 
-      <Drawer
-        variant="persistent"
-        open={openDrawer}
-        onClose={() => setOpenDrawer(false)}
-        sx={{
-          [`& .MuiDrawer-paper`]: {
-            backgroundColor: "rgba(0, 0, 0, 0.6)",
-            minWidth: "210px",
-          },
-        }}
-      >
-        <IconButton onClick={() => setOpenDrawer(false)} sx={{ position: "absolute", top: 0, right: ".5rem" }}>
-          <KeyboardBackspace sx={{ color: "white" }} />
-        </IconButton>
-
-        {motionMounted && (
-          <Motion
-            body={body}
-            setBody={setBody}
-            setLerpFactor={setLerpFactor}
-            style={{ display: activeTab === "motion" ? "block" : "none" }}
-          />
-        )}
-        {activeTab === "material" && <Materials materials={materials} setMaterialVisible={setMaterialVisible} />}
-        {activeTab === "skeleton" && <Skeleton setBoneRotation={setBoneRotation} />}
-        {activeTab === "animation" && (
-          <Animation
-            isPlaying={isPlaying}
-            setIsPlaying={setIsPlaying}
-            setSelectedAnimation={setSelectedAnimation}
-            currentAnimationTime={currentAnimationTime}
-            setAnimationSeekTime={setAnimationSeekTime}
-            animationDuration={animationDuration}
-          />
-        )}
-        {activeTab === "model" && <Model setSelectedModel={setSelectedModel} />}
-        {activeTab === "background" && (
-          <Background selectedBackground={selectedBackground} setSelectedBackground={setSelectedBackground} />
-        )}
-      </Drawer>
       <Footer setOpenDrawer={setOpenDrawer} setActiveTab={setActiveTab} />
     </>
   );
