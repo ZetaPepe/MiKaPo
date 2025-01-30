@@ -1,0 +1,46 @@
+、<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Mikiu</title>
+    <style>
+      body {
+        background-color: #000;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      button {
+        background-color: #f209f5;
+        color: white;
+        font-size: 18px;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #d10bd3;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Welcome to Mikiu</h1>
+      <button id="startButton">Click to Start</button>
+    </div>
+
+    <script>
+      document.getElementById("startButton").addEventListener("click", function() {
+        // Redirect to the main page (your current page with React app)
+        window.location.href = "/index.html";  // Change to the path of your main page
+      });
+    </script>
+  </body>
+</html>
