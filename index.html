@@ -31,10 +31,12 @@
         padding: 20px;
       }
 
-      /* 图片样式 */
+      /* 圆形图片样式 */
       #loading-image {
         width: 120px; /* 图片大小 */
-        height: auto;
+        height: 120px;
+        border-radius: 50%; /* 让图片变圆 */
+        object-fit: cover; /* 确保图片填充整个圆形 */
         margin-bottom: 20px;
       }
 
@@ -57,7 +59,7 @@
   <body>
     <!-- 载入提示框 -->
     <div id="loading-screen">
-      <img id="loading-image" src="/loading.gif" alt="加载中" />
+      <img id="loading-image" src="/logo.png" alt="加载中" />
       <div id="loading-title">Welcome to Mikiu, loading...</div>
       <div id="loading-text">
         First 3D AI Agent Platform, allowing users to recreate and display Mikiu Agent.
