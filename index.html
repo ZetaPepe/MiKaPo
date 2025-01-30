@@ -8,63 +8,11 @@
     <style>
       body {
         background-color: #000;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-      }
-      #loading {
-        display: none;
-        color: white;
-      }
-      #button-container {
-        text-align: center;
-      }
-      button {
-        background-color: #f209f5;
-        color: white;
-        font-size: 18px;
-        padding: 15px 30px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-      button:hover {
-        background-color: #d10bd3;
       }
     </style>
   </head>
   <body>
-    <div id="button-container">
-      <button id="loadAppButton">Click to Load App</button>
-      <p id="loading">Loading...</p>
-    </div>
-    <script>
-      const loadAppButton = document.getElementById("loadAppButton");
-      const loadingText = document.getElementById("loading");
-
-      loadAppButton.addEventListener("click", () => {
-        // Show loading text when button is clicked
-        loadingText.style.display = "block";
-        
-        // Dynamically import the main.tsx file
-        import("/src/main.tsx")
-          .then(() => {
-            console.log("App loaded successfully");
-            
-            // Hide the button and loading text once the app is loaded
-            loadAppButton.style.display = "none";
-            loadingText.style.display = "none";
-            
-            // Perform the page redirect after loading the app
-            window.location.href = "/new-page.html"; // Redirect to another page after loading
-          })
-          .catch((error) => {
-            console.error("Error loading the app:", error);
-          });
-      });
-    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
