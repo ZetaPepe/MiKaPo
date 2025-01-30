@@ -9,7 +9,7 @@ import Footer from "./Footer";
 import Skeleton from "./Skeleton";
 import Background from "./Background";
 import { Drawer, IconButton } from "@mui/material";
-import { KeyboardBackspace, Close } from "@mui/icons-material"; // 引入关闭按钮图标
+import { KeyboardBackspace, Close } from "@mui/icons-material"; // 关闭按钮
 import { Body } from "./index";
 
 function App(): JSX.Element {
@@ -35,9 +35,10 @@ function App(): JSX.Element {
   const [materialVisible, setMaterialVisible] = useState<{ name: string; visible: boolean } | null>(null);
   const [motionMounted, setMotionMounted] = useState(false);
 
-  // 控制提示框的显示状态
+  // 先显示提示框，等提示框消失后才显示3D模型
   const [showPopup, setShowPopup] = useState<boolean>(true);
-  const [opacity, setOpacity] = useState<number>(1); // 控制透明度
+  const [showModel, setShowModel] = useState<boolean>(false); // 控制3D模型的显示
+  const [opacity, setOpacity] = useState<number>(1);
 
   useEffect(() => {
     if (activeTab === "motion" && !motionMounted) {
@@ -45,12 +46,13 @@ function App(): JSX.Element {
     }
   }, [activeTab, motionMounted]);
 
-  // 6 秒后开始淡出，并最终隐藏
+  // 6 秒后隐藏提示框，然后显示 3D 模型
   useEffect(() => {
     const timer = setTimeout(() => {
       setOpacity(0);
       setTimeout(() => {
         setShowPopup(false);
+        setShowModel(true); // 显示 3D 模型
       }, 500); // 500ms 后完全隐藏
     }, 6000);
 
@@ -59,7 +61,7 @@ function App(): JSX.Element {
 
   return (
     <>
-      {/* 页面中央的提示框 */}
+      {/* 提示框 */}
       {showPopup && (
         <div
           style={{
@@ -81,12 +83,18 @@ function App(): JSX.Element {
             alignItems: "center",
             opacity: opacity,
             transition: "opacity 0.5s ease-in-out",
-            zIndex: 9999, // 确保始终在最前面
+            zIndex: 9999, // 确保在最前面
           }}
         >
           {/* 关闭按钮 */}
           <button
-            onClick={() => setShowPopup(false)}
+            onClick={() => {
+              setOpacity(0);
+              setTimeout(() => {
+                setShowPopup(false);
+                setShowModel(true);
+              }, 500);
+            }}
             style={{
               position: "absolute",
               top: "8px",
@@ -114,22 +122,26 @@ function App(): JSX.Element {
 
       <Header />
 
-      <MMDScene
-        selectedModel={selectedModel}
-        selectedBackground={selectedBackground}
-        selectedAnimation={selectedAnimation}
-        setSelectedAnimation={setSelectedAnimation}
-        body={body}
-        lerpFactor={lerpFactor}
-        boneRotation={boneRotation}
-        setMaterials={setMaterials}
-        materialVisible={materialVisible}
-        setCurrentAnimationTime={setCurrentAnimationTime}
-        setAnimationDuration={setAnimationDuration}
-        animationSeekTime={animationSeekTime}
-        isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
-      />
+      {/* 6 秒后才显示 3D 模型 */}
+      {showModel && (
+        <MMDScene
+          selectedModel={selectedModel}
+          selectedBackground={selectedBackground}
+          selectedAnimation={selectedAnimation}
+          setSelectedAnimation={setSelectedAnimation}
+          body={body}
+          lerpFactor={lerpFactor}
+          boneRotation={boneRotation}
+          setMaterials={setMaterials}
+          materialVisible={materialVisible}
+          setCurrentAnimationTime={setCurrentAnimationTime}
+          setAnimationDuration={setAnimationDuration}
+          animationSeekTime={animationSeekTime}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+        />
+      )}
+
       <Drawer
         variant="persistent"
         open={openDrawer}
