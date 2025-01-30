@@ -51,8 +51,8 @@ function App(): JSX.Element {
       setOpacity(0);
       setTimeout(() => {
         setShowPopup(false);
-      }, 2000); // 500ms 后完全隐藏
-    }, 3000);
+      }, 500); // 500ms 后完全隐藏
+    }, 6000);
 
     return () => clearTimeout(timer);
   }, []);
