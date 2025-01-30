@@ -9,7 +9,7 @@ import Footer from "./Footer";
 import Skeleton from "./Skeleton";
 import Background from "./Background";
 import { Drawer, IconButton } from "@mui/material";
-import { KeyboardBackspace } from "@mui/icons-material";
+import { KeyboardBackspace, Close } from "@mui/icons-material"; // 引入关闭按钮图标
 import { Body } from "./index";
 
 function App(): JSX.Element {
@@ -45,7 +45,7 @@ function App(): JSX.Element {
     }
   }, [activeTab, motionMounted]);
 
-  // 3 秒后开始淡出，并最终隐藏
+  // 6 秒后开始淡出，并最终隐藏
   useEffect(() => {
     const timer = setTimeout(() => {
       setOpacity(0);
@@ -81,8 +81,24 @@ function App(): JSX.Element {
             alignItems: "center",
             opacity: opacity,
             transition: "opacity 0.5s ease-in-out",
+            zIndex: 9999, // 确保始终在最前面
           }}
         >
+          {/* 关闭按钮 */}
+          <button
+            onClick={() => setShowPopup(false)}
+            style={{
+              position: "absolute",
+              top: "8px",
+              right: "8px",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+            }}
+          >
+            <Close style={{ color: "black", fontSize: "20px" }} />
+          </button>
+
           {/* 标题文本 */}
           <h2 style={{ margin: "0 0 10px", fontSize: "22px", fontWeight: "bold" }}>
             Welcome to Mikiu!
