@@ -37,7 +37,7 @@ function App(): JSX.Element {
 
   // 先显示提示框，等提示框消失后才显示3D模型
   const [showPopup, setShowPopup] = useState<boolean>(true);
-  const [showModel, setShowModel] = useState<boolean>(false); // 控制3D模型的显示
+  const [showModel, setShowModel] = useState<boolean>(false);
   const [opacity, setOpacity] = useState<number>(1);
 
   useEffect(() => {
@@ -52,15 +52,15 @@ function App(): JSX.Element {
       setOpacity(0);
       setTimeout(() => {
         setShowPopup(false);
-        setShowModel(true); // 显示 3D 模型
-      }, 500); // 500ms 后完全隐藏
+        setShowModel(true);
+      }, 500);
     }, 6000);
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <>
+    <div>
       {/* 提示框 */}
       {showPopup && (
         <div
@@ -83,10 +83,9 @@ function App(): JSX.Element {
             alignItems: "center",
             opacity: opacity,
             transition: "opacity 0.5s ease-in-out",
-            zIndex: 9999, // 确保在最前面
+            zIndex: 9999,
           }}
         >
-          {/* 关闭按钮 */}
           <button
             onClick={() => {
               setOpacity(0);
@@ -107,18 +106,15 @@ function App(): JSX.Element {
             <Close style={{ color: "white", fontSize: "20px" }} />
           </button>
 
-          {/* 标题文本 */}
           <h2 style={{ margin: "0 0 10px", fontSize: "22px", fontWeight: "bold" }}>
             Welcome to Mikiu!
           </h2>
 
-          {/* 介绍文本 */}
           <p style={{ margin: "0", fontSize: "14px", lineHeight: "1.5", maxWidth: "350px" }}>
             First 3D AI Agent Platform, allowing users to recreate and display Mikiu Agent.
             Using 3D Motion Capture & MMD Model Technology to interact with MIKIU.
           </p>
 
-          {/* Enter 按钮 */}
           <button
             onClick={() => {
               setOpacity(0);
@@ -149,7 +145,6 @@ function App(): JSX.Element {
 
       <Header />
 
-      {/* 6 秒后才显示 3D 模型 */}
       {showModel && (
         <MMDScene
           selectedModel={selectedModel}
@@ -209,4 +204,9 @@ function App(): JSX.Element {
           <Background selectedBackground={selectedBackground} setSelectedBackground={setSelectedBackground} />
         )}
       </Drawer>
-      <Footer setOpenDrawer={setOpen
+      <Footer setOpenDrawer={setOpenDrawer} setActiveTab={setActiveTab} />
+    </div>
+  );
+}
+
+export default App;
