@@ -25,25 +25,44 @@
         justify-content: center;
         align-items: center;
         color: white;
-        font-size: 24px;
         font-family: Arial, sans-serif;
         text-align: center;
         z-index: 9999;
+        padding: 20px;
       }
 
       /* 图片样式 */
       #loading-image {
-        width: 120px; /* 图片宽度 */
+        width: 120px; /* 图片大小 */
         height: auto;
-        margin-bottom: 20px; /* 图片和文字之间的间距 */
+        margin-bottom: 20px;
+      }
+
+      /* 标题样式 */
+      #loading-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      /* 介绍文字样式 */
+      #loading-text {
+        font-size: 16px;
+        max-width: 600px;
+        line-height: 1.5;
+        opacity: 0.8;
       }
     </style>
   </head>
   <body>
     <!-- 载入提示框 -->
     <div id="loading-screen">
-      <img id="loading-image" src="/logo.png" alt="加载中" />
-      Welcome to Mikiu, loading...
+      <img id="loading-image" src="/loading.gif" alt="加载中" />
+      <div id="loading-title">Welcome to Mikiu, loading...</div>
+      <div id="loading-text">
+        First 3D AI Agent Platform, allowing users to recreate and display Mikiu Agent.
+        Using 3D Motion Capture & MMD Model Technology to interact with MIKIU.
+      </div>
     </div>
 
     <!-- React 挂载点 -->
