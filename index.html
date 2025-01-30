@@ -53,9 +53,13 @@
         import("/src/main.tsx")
           .then(() => {
             console.log("App loaded successfully");
+            
             // Hide the button and loading text once the app is loaded
             loadAppButton.style.display = "none";
             loadingText.style.display = "none";
+            
+            // Perform the page redirect after loading the app
+            window.location.href = "/new-page.html"; // Redirect to another page after loading
           })
           .catch((error) => {
             console.error("Error loading the app:", error);
