@@ -52,7 +52,7 @@ function App(): JSX.Element {
       setTimeout(() => {
         setShowPopup(false);
       }, 500); // 500ms 后完全隐藏
-    }, 3000);
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -67,23 +67,32 @@ function App(): JSX.Element {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            backgroundColor: "rgba(255, 255, 255, 0.9)",
+            backgroundColor: "rgba(255, 255, 255, 0.95)",
             color: "black",
-            padding: "20px 40px",
-            borderRadius: "10px",
-            boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
+            padding: "20px",
+            borderRadius: "12px",
+            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
             fontSize: "18px",
             textAlign: "center",
-            width: "300px",
-            height: "150px",
+            width: "400px",
             display: "flex",
+            flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
             opacity: opacity,
             transition: "opacity 0.5s ease-in-out",
           }}
         >
-          <p>Welcome to Mikiu!</p>
+          {/* 标题文本 */}
+          <h2 style={{ margin: "0 0 10px", fontSize: "22px", fontWeight: "bold" }}>
+            Welcome to Mikiu!
+          </h2>
+
+          {/* 介绍文本 */}
+          <p style={{ margin: "0", fontSize: "14px", lineHeight: "1.5", maxWidth: "350px" }}>
+            First 3D AI Agent Platform, allowing users to recreate and display Mikiu Agent.
+            Using 3D Motion Capture & MMD Model Technology to interact with MIKIU.
+          </p>
         </div>
       )}
 
