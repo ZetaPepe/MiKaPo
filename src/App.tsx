@@ -11,7 +11,6 @@ import Background from "./Background";
 import { Drawer, IconButton } from "@mui/material";
 import { KeyboardBackspace, Close } from "@mui/icons-material"; // 关闭按钮
 import { Body } from "./index";
-import { Close } from "@mui/icons-material"; // 关闭按钮
 
 function App(): JSX.Element {
   const [body, setBody] = useState<Body>({
@@ -118,28 +117,6 @@ function App(): JSX.Element {
             First 3D AI Agent Platform, allowing users to recreate and display Mikiu Agent.
             Using 3D Motion Capture & MMD Model Technology to interact with MIKIU.
           </p>
-          
-          {/* Enter 按钮 */}
-          <button
-            onClick={handleEnter}
-            style={{
-              marginTop: "20px",
-              padding: "10px 20px",
-              fontSize: "16px",
-              fontWeight: "bold",
-              color: "white",
-              background: "rgba(255, 255, 255, 0.2)",
-              border: "2px solid white",
-              borderRadius: "8px",
-              cursor: "pointer",
-              transition: "0.3s",
-              textTransform: "uppercase",
-            }}
-            onMouseOver={(e) => (e.currentTarget.style.background = "rgba(255, 255, 255, 0.5)")}
-            onMouseOut={(e) => (e.currentTarget.style.background = "rgba(255, 255, 255, 0.2)")}
-          >
-            Enter
-          </button>
         </div>
       )}
 
