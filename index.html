@@ -12,7 +12,6 @@
         overflow: hidden;
       }
 
-      /* 提示框样式 */
       #loading-screen {
         position: fixed;
         top: 0;
@@ -32,29 +31,27 @@
     </style>
   </head>
   <body>
-    <!-- 提示框 -->
+    <!-- 载入提示框 -->
     <div id="loading-screen">欢迎访问 Mikiu，正在加载...</div>
 
-    <!-- 主要内容 -->
+    <!-- React 挂载点 -->
     <div id="root" style="display: none;"></div>
 
-    <script>
+    <script type="module">
       setTimeout(() => {
-        // 让提示框淡出
         document.getElementById('loading-screen').style.opacity = '0';
-
-        // 过渡动画完成后，移除提示框并显示主内容
         setTimeout(() => {
           document.getElementById('loading-screen').style.display = 'none';
           document.getElementById('root').style.display = 'block';
 
-          // 动态加载 main.tsx（React 入口文件）
-          const script = document.createElement('script');
-          script.type = 'module';
-          script.src = '/src/main.tsx';
-          document.body.appendChild(script);
-        }, 500); // 等待 0.5 秒再移除（淡出效果）
-      }, 3000); // 显示 3 秒后执行
+          // **动态导入 main.tsx**
+          import('/src/main.tsx').then(() => {
+            console.log('React 应用已加载');
+          }).catch((err) => {
+            console.error('加载 main.tsx 失败:', err);
+          });
+        }, 500);
+      }, 3000);
     </script>
   </body>
 </html>
