@@ -69,8 +69,8 @@ function App(): JSX.Element {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            backgroundColor: "rgba(255, 255, 255, 0.1)",
-            color: "balck",
+            backgroundColor: "rgba(255, 255, 255, 0.95)",
+            color: "black",
             padding: "20px",
             borderRadius: "12px",
             boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
@@ -147,7 +147,7 @@ function App(): JSX.Element {
         open={openDrawer}
         onClose={() => setOpenDrawer(false)}
         sx={{
-          [& .MuiDrawer-paper]: {
+          [`& .MuiDrawer-paper`]: {
             backgroundColor: "rgba(0, 0, 0, 0.6)",
             minWidth: "210px",
           },
