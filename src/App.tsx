@@ -35,8 +35,9 @@ function App(): JSX.Element {
   const [materialVisible, setMaterialVisible] = useState<{ name: string; visible: boolean } | null>(null);
   const [motionMounted, setMotionMounted] = useState(false);
 
-  // 添加状态控制提示框
+  // 控制提示框的显示状态
   const [showPopup, setShowPopup] = useState<boolean>(true);
+  const [opacity, setOpacity] = useState<number>(1); // 控制透明度
 
   useEffect(() => {
     if (activeTab === "motion" && !motionMounted) {
@@ -44,20 +45,44 @@ function App(): JSX.Element {
     }
   }, [activeTab, motionMounted]);
 
-  // 自动隐藏提示框
+  // 3 秒后开始淡出，并最终隐藏
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowPopup(false);
-    }, 3000); // 3秒后消失
+      setOpacity(0);
+      setTimeout(() => {
+        setShowPopup(false);
+      }, 500); // 500ms 后完全隐藏
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <>
-      {/* 右上角提示框 */}
+      {/* 页面中央的提示框 */}
       {showPopup && (
-        <div className="popup">
+        <div
+          style={{
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            backgroundColor: "rgba(255, 255, 255, 0.9)",
+            color: "black",
+            padding: "20px 40px",
+            borderRadius: "10px",
+            boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
+            fontSize: "18px",
+            textAlign: "center",
+            width: "300px",
+            height: "150px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            opacity: opacity,
+            transition: "opacity 0.5s ease-in-out",
+          }}
+        >
           <p>Welcome to Mikiu!</p>
         </div>
       )}
