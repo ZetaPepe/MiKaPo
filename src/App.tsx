@@ -1,43 +1,67 @@
-import { useEffect, useState } from "react"
-import Motion from "./Motion"
-import MMDScene from "./MMDScene"
-import Materials from "./Materials"
-import Model from "./Model"
-import Animation from "./Animation"
-import Header from "./Header"
-import Footer from "./Footer"
-import Skeleton from "./Skeleton"
-import Background from "./Background"
-import { Drawer, IconButton } from "@mui/material"
-import { KeyboardBackspace } from "@mui/icons-material"
-import { Body } from "./index"
+import { useEffect, useState } from "react";
+import Motion from "./Motion";
+import MMDScene from "./MMDScene";
+import Materials from "./Materials";
+import Model from "./Model";
+import Animation from "./Animation";
+import Header from "./Header";
+import Footer from "./Footer";
+import Skeleton from "./Skeleton";
+import Background from "./Background";
+import { Drawer, IconButton } from "@mui/material";
+import { KeyboardBackspace } from "@mui/icons-material";
+import { Body } from "./index";
 
 function App(): JSX.Element {
-  const [body, setBody] = useState<Body>({ mainBody: null, leftHand: null, rightHand: null, face: null })
-  const [lerpFactor, setLerpFactor] = useState<number>(0.5)
-  const [openDrawer, setOpenDrawer] = useState<boolean>(false)
-  const [activeTab, setActiveTab] = useState<string>("")
-  const [selectedModel, setSelectedModel] = useState<string>("Eye of Deep Space - Brahma 2")
-  const [selectedBackground, setSelectedBackground] = useState<string>("Beach")
-  const [isPlaying, setIsPlaying] = useState<boolean>(false)
-  const [selectedAnimation, setSelectedAnimation] = useState<string>("")
-  const [currentAnimationTime, setCurrentAnimationTime] = useState<number>(0)
-  const [animationSeekTime, setAnimationSeekTime] = useState<number>(0)
-  const [animationDuration, setAnimationDuration] = useState<number>(0)
-  const [boneRotation, setBoneRotation] = useState<{ name: string; axis: string; value: number } | null>(null)
-  const [materials, setMaterials] = useState<string[]>([])
-  const [materialVisible, setMaterialVisible] = useState<{ name: string; visible: boolean } | null>(null)
+  const [body, setBody] = useState<Body>({
+    mainBody: null,
+    leftHand: null,
+    rightHand: null,
+    face: null,
+  });
 
-  const [motionMounted, setMotionMounted] = useState(false)
+  const [lerpFactor, setLerpFactor] = useState<number>(0.5);
+  const [openDrawer, setOpenDrawer] = useState<boolean>(false);
+  const [activeTab, setActiveTab] = useState<string>("");
+  const [selectedModel, setSelectedModel] = useState<string>("Eye of Deep Space - Brahma 2");
+  const [selectedBackground, setSelectedBackground] = useState<string>("Beach");
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [selectedAnimation, setSelectedAnimation] = useState<string>("");
+  const [currentAnimationTime, setCurrentAnimationTime] = useState<number>(0);
+  const [animationSeekTime, setAnimationSeekTime] = useState<number>(0);
+  const [animationDuration, setAnimationDuration] = useState<number>(0);
+  const [boneRotation, setBoneRotation] = useState<{ name: string; axis: string; value: number } | null>(null);
+  const [materials, setMaterials] = useState<string[]>([]);
+  const [materialVisible, setMaterialVisible] = useState<{ name: string; visible: boolean } | null>(null);
+  const [motionMounted, setMotionMounted] = useState(false);
+
+  // 添加状态控制提示框
+  const [showPopup, setShowPopup] = useState<boolean>(true);
+
   useEffect(() => {
     if (activeTab === "motion" && !motionMounted) {
-      setMotionMounted(true)
+      setMotionMounted(true);
     }
-  }, [activeTab, motionMounted])
+  }, [activeTab, motionMounted]);
+
+  // 自动隐藏提示框
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPopup(false);
+    }, 3000); // 3秒后消失
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
-      {/* 删除 fps 属性传递 */}
+      {/* 右上角提示框 */}
+      {showPopup && (
+        <div className="popup">
+          <p>Welcome to Mikiu!</p>
+        </div>
+      )}
+
       <Header />
 
       <MMDScene
@@ -79,9 +103,7 @@ function App(): JSX.Element {
             style={{ display: activeTab === "motion" ? "block" : "none" }}
           />
         )}
-        {activeTab === "material" && (
-          <Materials materials={materials} setMaterialVisible={setMaterialVisible} />
-        )}
+        {activeTab === "material" && <Materials materials={materials} setMaterialVisible={setMaterialVisible} />}
         {activeTab === "skeleton" && <Skeleton setBoneRotation={setBoneRotation} />}
         {activeTab === "animation" && (
           <Animation
@@ -95,15 +117,12 @@ function App(): JSX.Element {
         )}
         {activeTab === "model" && <Model setSelectedModel={setSelectedModel} />}
         {activeTab === "background" && (
-          <Background
-            selectedBackground={selectedBackground}
-            setSelectedBackground={setSelectedBackground}
-          />
+          <Background selectedBackground={selectedBackground} setSelectedBackground={setSelectedBackground} />
         )}
       </Drawer>
       <Footer setOpenDrawer={setOpenDrawer} setActiveTab={setActiveTab} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
