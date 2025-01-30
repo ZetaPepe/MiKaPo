@@ -69,7 +69,7 @@ function App(): JSX.Element {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            backgroundColor: "transparent",
+            backgroundColor: "rgba(0, 0, 0, 0.8)",
             color: "white",
             padding: "20px",
             borderRadius: "12px",
@@ -104,7 +104,7 @@ function App(): JSX.Element {
               cursor: "pointer",
             }}
           >
-            <Close style={{ color: "black", fontSize: "20px" }} />
+            <Close style={{ color: "white", fontSize: "20px" }} />
           </button>
 
           {/* 标题文本 */}
@@ -117,6 +117,33 @@ function App(): JSX.Element {
             First 3D AI Agent Platform, allowing users to recreate and display Mikiu Agent.
             Using 3D Motion Capture & MMD Model Technology to interact with MIKIU.
           </p>
+
+          {/* Enter 按钮 */}
+          <button
+            onClick={() => {
+              setOpacity(0);
+              setTimeout(() => {
+                setShowPopup(false);
+                setShowModel(true);
+              }, 500);
+            }}
+            style={{
+              marginTop: "15px",
+              padding: "10px 20px",
+              fontSize: "16px",
+              fontWeight: "bold",
+              color: "white",
+              backgroundColor: "#007bff",
+              border: "none",
+              borderRadius: "6px",
+              cursor: "pointer",
+              transition: "background-color 0.3s",
+            }}
+            onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#0056b3")}
+            onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#007bff")}
+          >
+            Enter
+          </button>
         </div>
       )}
 
@@ -182,9 +209,4 @@ function App(): JSX.Element {
           <Background selectedBackground={selectedBackground} setSelectedBackground={setSelectedBackground} />
         )}
       </Drawer>
-      <Footer setOpenDrawer={setOpenDrawer} setActiveTab={setActiveTab} />
-    </>
-  );
-}
-
-export default App;
+      <Footer setOpenDrawer={setOpen
