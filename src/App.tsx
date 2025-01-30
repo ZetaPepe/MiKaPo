@@ -69,7 +69,7 @@ function App(): JSX.Element {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            backgroundColor: "rgba(255, 255, 255, 0)",
+            backgroundColor: "transparent",
             color: "white",
             padding: "20px",
             borderRadius: "12px",
