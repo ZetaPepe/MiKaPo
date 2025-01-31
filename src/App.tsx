@@ -101,8 +101,8 @@ function App(): JSX.Element {
             }}
             style={{
               marginTop: "15px",
-              padding: "10px 35px",
-              fontSize: "30px",
+              padding: "5px 17px",
+              fontSize: "15px",
               fontWeight: "bold",
               color: "white",
               backgroundColor: "#007bff",
