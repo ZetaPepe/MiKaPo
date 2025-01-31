@@ -22,11 +22,11 @@ function Header(): JSX.Element {
         {/* 修改字体样式为艺术体，并设置为白色 */}
         <h2
           style={{
-            fontFamily: "'Monaco, monospace", // 使用艺术字体
-            fontSize: "2rem", // 字体大小
+            fontFamily: "'cursive", // 使用艺术字体
+            fontSize: "1.5rem", // 字体大小
             color: "white", // 字体颜色设置为白色
             fontWeight: "normal", // 字体重量为正常
-            letterSpacing: "2px", // 字母间距
+            letterSpacing: "1.5px", // 字母间距
           }}
         >
           Mikiu
