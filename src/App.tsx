@@ -83,13 +83,12 @@ function App(): JSX.Element {
             zIndex: 9999,
           }}
         >
-          <h2 style={{ margin: "0 0 10px", fontSize: "30px", fontWeight: "bold" }}>
-            Welcome to Mikiu!
+          <h2 style={{ margin: "0 0 10px", fontSize: "25px", fontWeight: "bold" }}>
+            Welcome to Mikiu
           </h2>
 
           <p style={{ margin: "0", fontSize: "14px", lineHeight: "1.5", maxWidth: "350px" }}>
-            First 3D AI Agent Platform, allowing users to recreate and display Mikiu Agent.
-            Using 3D Motion Capture & MMD Model Technology to interact with MIKIU.
+            First 3D AI Agent Platform
           </p>
 
           <button
