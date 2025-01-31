@@ -1,7 +1,7 @@
 import { Avatar, IconButton } from "@mui/material"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 // 导入新的 Telegram 和 Twitter 图标
-import { faTelegram, faTwitter } from "@fortawesome/free-brands-svg-icons"
+import { faGithub, faTelegram, faTwitter } from "@fortawesome/free-brands-svg-icons"
 
 function Header(): JSX.Element {
   return (
@@ -29,6 +29,11 @@ function Header(): JSX.Element {
       </div>
 
       <div className="header-item" style={{ justifyContent: "flex-end" }}>
+        <a href="https://github.com/AugustineBernal/Mikiu" target="_blank">
+          <IconButton>
+            <FontAwesomeIcon icon={faGithub} color="white" size="sm" />
+          </IconButton>
+        </a>
         {/* 将 Github 图标替换为 Telegram 图标 */}
         <a href="https://t.me/your-telegram-link" target="_blank">
           <IconButton>
