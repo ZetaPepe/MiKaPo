@@ -43,7 +43,7 @@ function Header(): JSX.Element {
             <FontAwesomeIcon icon={faGithub} color="white" size="sm" />
           </IconButton>
         </a>
-        <a href="https://t.me/your-telegram-link" target="_blank">
+        <a href="https://t.me/MikiuAI" target="_blank">
           <IconButton>
             <FontAwesomeIcon icon={faTelegram} color="white" size="sm" />
           </IconButton>
