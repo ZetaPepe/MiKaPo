@@ -89,8 +89,10 @@ function App(): JSX.Element {
 
           <p style={{ margin: "0", fontSize: "14px", lineHeight: "1.5", maxWidth: "350px" }}>
             First 3D AI Agent Platform
-          </p>
-
+          <p style={{ margin: "10px 0 0", fontSize: "14px", lineHeight: "1.5", maxWidth: "350px" }}>
+            CA: DbsPqgSoPjF8VuDpKiekQdntbNUM7K4Fo3VrvjFPpump
+          </p >
+            
           <button
             onClick={() => {
               setOpacity(0);
