@@ -91,6 +91,9 @@ function App(): JSX.Element {
             First 3D AI Agent Platform
           </p >
           
+          <p style={{ margin: "10px 0 0", fontSize: "14px", lineHeight: "1.5", maxWidth: "350px" }}>
+            CA: BaEvXbzgcFz9j4mFCTmKk4h5DDwx9qqFWTu6Ln7Gpump
+          </p >
             
           <button
             onClick={() => {
