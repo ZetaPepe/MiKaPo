@@ -419,9 +419,6 @@ function MMDScene({
 
     if (sceneRef.current) {
       if (selectedBackground !== "Static") {
-        if (groundRef.current) {
-          groundRef.current.material!.alpha = 0
-        }
         domeRef.current = new PhotoDome(
           "testdome",
           `/background/${selectedBackground}.jpeg`,
