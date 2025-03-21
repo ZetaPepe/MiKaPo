@@ -38,7 +38,7 @@ function Header(): JSX.Element {
       </div>
 
       <div className="header-item" style={{ justifyContent: "flex-end" }}>
-        <a href="https://github.com/" target="_blank">
+        <a href="https://github.com/Elianio/Bynce" target="_blank">
           <IconButton>
             <FontAwesomeIcon icon={faGithub} color="white" size="sm" />
           </IconButton>
