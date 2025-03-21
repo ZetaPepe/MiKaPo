@@ -354,7 +354,7 @@ function MMDScene({
       })
 
       const camera = new ArcRotateCamera("ArcRotateCamera", 0, 0, 45, new Vector3(0, 12, 0), scene)
-      camera.setPosition(new Vector3(0, 19, -35))
+      camera.setPosition(new Vector3(0, 19, -38))
       camera.attachControl(canvas, false)
       camera.inertia = 0.8
       camera.speed = 10
