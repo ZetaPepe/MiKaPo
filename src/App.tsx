@@ -84,7 +84,7 @@ function App(): JSX.Element {
           }}
         >
           <h2 style={{ margin: "0 0 10px", fontSize: "25px", fontWeight: "bold" }}>
-            Welcome to Mikiu
+            Welcome to BynceAI
           </h2>
 
           <p style={{ margin: "0", fontSize: "14px", lineHeight: "1.5", maxWidth: "350px" }}>
