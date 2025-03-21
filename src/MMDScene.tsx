@@ -451,7 +451,6 @@ function MMDScene({
       SceneLoader.ImportMeshAsync(undefined, `/model/${selectedModel}/`, `${selectedModel}.pmx`, sceneRef.current).then(
         (result) => {
           const mesh = result.meshes[0]
-           mesh.scaling.set(0.7, 0.7, 0.7) 
           for (const m of mesh.metadata.meshes) {
             m.receiveShadows = true
           }
