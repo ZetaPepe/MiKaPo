@@ -382,7 +382,7 @@ function MMDScene({
       backgroundMaterial.opacityFresnel = false
       backgroundMaterial.shadowLevel = 0.4
       backgroundMaterial.useRGBColor = false
-      backgroundMaterial.primaryColor = Color3.Magenta()
+      backgroundMaterial.primaryColor = Color3.White()
 
       groundRef.current = MeshBuilder.CreateGround(
         "Ground11",
