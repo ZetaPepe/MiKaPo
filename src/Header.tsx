@@ -48,7 +48,7 @@ function Header(): JSX.Element {
             <FontAwesomeIcon icon={faTelegram} color="white" size="sm" />
           </IconButton>
         </a>
-        <a href="https://x.com/bynceai" target="_blank">
+        <a href="https://x.com/bynce_agent" target="_blank">
           <IconButton size="small" color="inherit">
             <FontAwesomeIcon icon={faTwitter} color="white" size="sm" />
           </IconButton>
